@@ -35,21 +35,6 @@ $(document).ready(function () {
 });
 
 
-// ===========================
-//
-//        Play a song
-//
-// ===========================
-//
-// # Play a track
-//
-// Play a track using the Souncdloud Javascript SDK
-//
-function playOneTrack () {
-  // TODO: fill this out
-}
-
-
 // ======================================
 //
 //    Play a song for the user's mood
