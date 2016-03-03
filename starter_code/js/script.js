@@ -30,7 +30,7 @@ SC.initialize({
 // $(document).ready() runs once the page DOM is ready for JavaScript
 // to execute. A page can't be manipulated safely until the document is ready.
 //
-$(document).ready(function () {
+$(document).ready(function() {
   // Add click handlers to 'go' and 'random' buttons here.
 });
 
@@ -48,7 +48,7 @@ $(document).ready(function () {
 // 2. Search Souncloud for a song for the mood
 // 3. Update jumbotron #moodstatus to dipsplay the mood
 //
-function goClicked () {
+function goClicked() {
   // TODO: fill this out
 }
 
@@ -62,7 +62,7 @@ function goClicked () {
 //
 // * **mood**, the user's mood.
 //
-function searchTracks (mood) {
+function searchTracks(mood) {
   // TODO: fill this out
 }
 
@@ -77,7 +77,7 @@ function searchTracks (mood) {
 // * **trackid**, the ID of the track to play.
 //
 var currentSong = null; // The song that is currently playing
-function playTrack (trackid) {
+function playTrack(trackid) {
   if (currentSong != null) {
     // TODO: stop the current song
   }
@@ -92,7 +92,7 @@ function playTrack (trackid) {
 //
 // * **mood**, the user's mood
 //
-function updateJumboTron (mood) {
+function updateJumboTron(mood) {
   $('#moodstatus').text('It sounds like you are in a ' + mood +  ' mood!!');
 }
 
@@ -109,7 +109,7 @@ function updateJumboTron (mood) {
 //
 // Pick a mood at random from moodList and find a track for that mood.
 //
-function randomClicked () {
+function randomClicked() {
   // TODO: fill this out
 }
 
@@ -120,7 +120,7 @@ function randomClicked () {
 //
 // TODO: add moods to this list
 var moodList = [];
-function randomMood () {
+function randomMood() {
   // TODO: fill this out
 }
 
@@ -148,7 +148,7 @@ function randomMood () {
 //
 // * **color**, the color to change to
 //
-function changeColor (color) {
+function changeColor(color) {
   // TODO: fill this out
 }
 
@@ -163,7 +163,7 @@ function changeColor (color) {
 //
 // * returns a color's hex code
 //
-function getColor (mood) {
+function getColor(mood) {
   // TODO: fill this out
 }
 
