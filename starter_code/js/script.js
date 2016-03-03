@@ -15,7 +15,7 @@
 // # Initialize the Soundcloud API client with our client ID
 //
 SC.initialize({
-  client_id: '5aa8e389ba4e24b6106af5159ab3e344'
+  client_id: 'TODO: Replace this with your client_id'
 });
 
 
