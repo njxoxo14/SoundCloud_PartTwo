@@ -1,4 +1,5 @@
 # Project: SoundMood
+![Getting in the SoundMood](http://i.giphy.com/RNN3YHkJaREmQ.gif)
 
 ## Scope
 You have just been hired as a consultant for Sound Inc. A brand new streaming music service.
