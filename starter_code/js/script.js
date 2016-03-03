@@ -103,8 +103,6 @@ function updateJumboTron (mood) {
 //
 // =======================
 
-// List of moods
-var moodList = [];
 
 //
 // # 'Random' button click handler
@@ -120,6 +118,8 @@ function randomClicked () {
 //
 // Returns a random mood from moodList.
 //
+// TODO: add moods to this list
+var moodList = [];
 function randomMood () {
   // TODO: fill this out
 }
