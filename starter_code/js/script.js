@@ -41,9 +41,6 @@ $(document).ready(function () {
 //
 // ======================================
 
-// The song that is currently playing
-var currentSong;
-
 //
 // # 'Go' button click handler
 //
@@ -79,8 +76,12 @@ function searchTracks (mood) {
 //
 // * **trackid**, the ID of the track to play.
 //
+var currentSong = null; // The song that is currently playing
 function playTrack (trackid) {
-  // TODO: fill this out
+  if (currentSong != null) {
+    // TODO: stop the current song
+  }
+  // TODO: stream the track based on the given id and update 'currentSong'.
 }
 
 //
