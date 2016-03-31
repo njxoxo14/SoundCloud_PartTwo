@@ -4,7 +4,7 @@
 //
 // ==========================
 
-
+/////////////////////////////////////check on jsbin
 // ==============================
 //
 //   Initialize Soundcloud API
@@ -15,7 +15,7 @@
 // # Initialize the Soundcloud API client with our client ID
 //
 SC.initialize({
-  client_id: 'TODO: Replace this with your client_id'
+  client_id: 'b43329eb065d6257f4349dc3daf1c426'
 });
 
 
@@ -31,6 +31,14 @@ SC.initialize({
 // to execute. A page can't be manipulated safely until the document is ready.
 //
 $(document).ready(function() {
+  console.clear();
+  $("#go").click(function(){
+    goClicked();
+  });
+  $("#random").click(function(){
+    randomClicked();
+  });
+  
   // Add click handlers to 'go' and 'random' buttons here.
 });
 
@@ -46,9 +54,12 @@ $(document).ready(function() {
 //
 // 1. Get the user's mood from the form
 // 2. Search Souncloud for a song for the mood
-// 3. Update jumbotron #moodstatus to dipsplay the mood
+// 3. Update jumbotron #moodstatus to display the mood
 //
 function goClicked() {
+  var moodGo = $("#go").attr("How are you feeling?");
+  console.log("go Has activated");
+  return searchTracks(moodGo);
   // TODO: fill this out
 }
 
@@ -63,6 +74,16 @@ function goClicked() {
 // * **mood**, the user's mood.
 //
 function searchTracks(mood) {
+   var genreMood = genreForMood(mood);
+  SC.get(
+    {genre:genreMood},function(tracks){
+      var i = Math.floor(Math.random() * tracks.length);
+      var track = tracks[i];
+      console.log(track.id);
+       return playTrack(track.id);
+    }
+    
+    );
   // TODO: fill this out
 }
 
@@ -79,7 +100,17 @@ function searchTracks(mood) {
 var currentSong = null; // The song that is currently playing
 function playTrack(trackid) {
   if (currentSong != null) {
+    SC.stream(trackid, function(sound) {
+        sound.pause();
+    });
+    currentSong = null;
     // TODO: stop the current song
+  }
+  else{
+    SC.stream(trackid, function(sound){
+    sound.play();
+  });
+  currentSong= trackid; 
   }
   // TODO: stream the track based on the given id and update 'currentSong'.
 }
@@ -110,8 +141,33 @@ function updateJumboTron(mood) {
 // Pick a mood at random from moodList and find a track for that mood.
 //
 function randomClicked() {
+  var mood =  randomMood();
+  return searchTracks(mood);
   // TODO: fill this out
 }
+function genreForMood(mood){
+  if(mood == "happy"){
+    return "pop";
+  }
+  else if(mood == "sad"){
+    return "";
+  }
+  else if(mood=="focused"){
+    return "classical";
+  }
+  else if(mood == "mellow"){
+    return "funk";
+  }
+  else if(mood == "angry"){
+    return "heavy rock"; 
+  }
+  else if(mood == "calm"){
+    return "alternative";
+  }
+  
+}
+
+
 
 //
 // # Random Mood
@@ -119,8 +175,9 @@ function randomClicked() {
 // Returns a random mood from moodList.
 //
 // TODO: add moods to this list
-var moodList = [];
+var moodList = ["happy", "sad", "calm", "broody", "aggressive", "tired", "angry", "focused","depressed","mellow"];
 function randomMood() {
+  return moodList[Math.floor(Math.random()*10)];
   // TODO: fill this out
 }
 
@@ -149,6 +206,7 @@ function randomMood() {
 // * **color**, the color to change to
 //
 function changeColor(color) {
+  $("body").css("background-color",color);
   // TODO: fill this out
 }
 
@@ -164,6 +222,42 @@ function changeColor(color) {
 // * returns a color's hex code
 //
 function getColor(mood) {
+  var color;
+  if(mood == "angry"){
+    color = " #e60000";
+  }
+  else if(mood == "sad"){
+    color = " #0000e6";
+  }
+  else if(mood == "calm"){
+    color = "#4775d1";
+  }
+  else if(mood == "broody"){
+    color = "#5c5c8a";
+    
+  }
+  else if(mood == "aggressive"){
+    color = "#ff3300";
+  }
+  else if(mood == "tired"){
+    color = "#4d4d4d";
+  }
+  else if(mood == "happy"){
+    color = " #ffff00";
+  }
+  else if(mood == "focused"){
+    color = "#6600cc";
+  }
+  else if(mood == "depressed"){
+    color = "#000066";
+  }
+  else if(mood == "mellow"){
+    color = "#e6ac00";
+  }
+  else{
+    color = "#ffffff";
+  }
+  return color;
   // TODO: fill this out
 }
 
